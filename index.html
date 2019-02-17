@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+</head>
+
+<style>
+    html {
+        display: table;
+        margin: auto;
+    }
+
+    body {
+        background: url(1.jpg);
+        background-color: rgba(0, 0, 0, 0.699);
+        display: table-cell;
+        vertical-align: middle;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+
+    .navbar-light {
+        text-align: left;
+        color: white;
+        font-family: serif;
+        font-size: 1em;
+        background-color: rgba(219, 63, 63, 0.301);
+        color: aliceblue;
+        width: 25%;
+        text-decoration: none;
+        font-weight: bold;
+        position: fixed;
+        top: 10px;
+        left: 0px;
+    }
+
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+        text-decoration: none;
+        color: rgb(223, 223, 220);
+    }
+
+    a.highlight:hover {
+        color: bisque;
+    }
+
+    #trivia {
+        color: rgb(251, 255, 1);
+        padding: 5px;
+        text-align: center;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 3em;
+        vertical-align: center;
+        margin: auto;
+        width: 100%;
+        margin-top: 0px;
+    }
+
+    #hideMsg {
+        background-color: rgba(0, 190, 10, 0.7);
+        color: rgb(255, 255, 255);
+        padding: 5px;
+        
+        text-align: center;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 1em;
+        border: 2px solid white;
+        vertical-align: center;
+        margin: auto;
+        width: 50%;
+        margin-top: 10px;
+
+    }
+
+    span {
+        font-size: 2em;
+    }
+
+    .question {
+        background-color: rgba(47, 0, 255, 1);
+        color: white;
+        padding: 5px;
+        text-align: center;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 1.5em;
+        border: 2px solid white;
+        margin: auto;
+        width: 100%
+
+    }
+
+    .results {
+        background-color: rgba(255, 0, 0, 0.7);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+        padding: 10px;
+        border-radius: 20%;
+        text-align: center;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 2em;
+        padding: 20px;
+        border: 2px solid white;
+        margin: auto;
+        width: 100%;
+        
+    }
+
+    #trueResponses{
+        background-color: rgba(0, 190, 10, 0.7);
+    }
+</style>
+
+
+
+
+<body>
+
+    <nav class="navbar navbar-light" id="navbar">
+        <a href="https://hmojtahedinia.github.io/Basic-Portfolio/">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="https://hmojtahedinia.github.io/Basic-Portfolio/contact.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+
+                
+                <div>
+                    <p id="trivia">
+                        Trivia Game
+                    </p>
+                </div>
+                <div>
+                    <p id="hideMsg"> You have<br><span>20</span><br> Seconds to finish it!</p>
+                </div><br>
+
+                <div id="div1" class="question">
+                    <label>Which city is closer to Toronto?</label><br><br>
+                    <input type="radio" name="question1" value="montreal"><label>Montreal</label><br>
+                    <input type="radio" name="question1" value="niagaraFalls"><label>Niagara Falls</label><br>
+                    <input type="radio" name="question1" value="ottawa"><label>Ottawa</label><br>
+                    <input type="radio" name="question1" value="vancouver"><label>Vancouver</label>
+                </div><br>
+
+                <div id="div2" class="fading question">
+                    <label>What is the smallest province in Canada?</label><br><br>
+                    <input type="radio" name="question2" value="princeEdwardIsland"><label>Prince Edward Island</label><br>
+                    <input type="radio" name="question2" value="manitoba"><label>Manitoba</label><br>
+                    <input type="radio" name="question2" value="novaScotia"><label>Nova Scotia</label><br>
+                    <input type="radio" name="question2" value="newBronswick"><label>New Bronswick</label>
+                </div><br>
+
+                <div id="div3" class="fading question">
+                    <label>Which one is not a highway in GTA?</label><br><br>
+                    <input type="radio" name="question3" value="404"><label>404</label><br>
+                    <input type="radio" name="question3" value="401"><label>401</label><br>
+                    <input type="radio" name="question3" value="400"><label>400</label><br>
+                    <input type="radio" name="question3" value="402"><label>402</label>
+                </div><br>
+
+                <div id="div4" class="fading question">
+                    <label>Which city is not in GTA?</label><br>
+                    <input type="radio" name="question4" value="hamilton"><label>Hamilton</label><br>
+                    <input type="radio" name="question4" value="ajax"><label>Ajax</label><br>
+                    <input type="radio" name="question4" value="bolton"><label>Bolton</label><br>
+                    <input type="radio" name="question4" value="kingCity"><label>King City</label>
+                </div><br>
+
+                <div>
+                    <p id="trueResponses" class="results"></p> >
+                </div>
+                <div>
+                    <p id="falseResponses" class="results"></p>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script>
+
+
+        var trueResponses = 0;
+        var falseResponses = 0;
+
+        $('.fading').hide();
+        $('.results').hide();
+
+
+
+        var sec = $('#hideMsg span').text() || 0;
+        var timer = setInterval(function () {
+            $('#hideMsg span').text(--sec);
+            if (sec == 15) {
+                $('#div1').hide();
+                $('#div2').show();
+                var result1 = $("input[name='question1']:checked").val();
+                if (result1 == "niagaraFalls") {
+                    trueResponses++;
+                } else {
+                    falseResponses++;
+                }
+            }
+
+            if (sec == 10) {
+                $('#div2').hide();
+                $('#div3').show();
+                var result2 = $("input[name='question2']:checked").val();
+                if (result2 == "princeEdwardIsland") {
+                    trueResponses++;
+                } else {
+                    falseResponses++;
+                }
+            }
+
+            if (sec == 5) {
+                $('#div3').hide();
+                $('#div4').show();
+                var result3 = $("input[name='question3']:checked").val();
+                if (result3 == "402") {
+                    trueResponses++;
+                } else {
+                    falseResponses++;
+                }
+            }
+
+            if (sec == 0) {
+                $('#hideMsg').hide();
+                $('#div4').hide();
+                clearInterval(timer);
+                var result4 = $("input[name='question4']:checked").val();
+                if (result4 == "hamilton") {
+                    trueResponses++;
+                } else {
+                    falseResponses++;
+                }
+                $('#trueResponses').text("True = " + trueResponses);
+                $('#falseResponses').text("False = " + falseResponses);
+                $('#trueResponses').show();
+                $('#falseResponses').show();
+
+            }
+
+            //console.log(trueResponses);
+            //console.log(falseResponses);
+
+
+
+
+            // document.getElementById("trueResponses").innerHTML = "True = " + trueResponses;
+            // document.getElementById("falseResponses").innerHTML = "False = " + falseResponses;
+
+
+        }, 1000);
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
